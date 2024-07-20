@@ -21,6 +21,7 @@ public class LobbyStartController : MonoBehaviour
     }
     public void GameStart()
     {
+        /*
         DataManager.Instance.StageLevel = 1;
         DataManager.Instance.MaxHealth = 4f;
         DataManager.Instance.Health = DataManager.Instance.MaxHealth;
@@ -46,9 +47,10 @@ public class LobbyStartController : MonoBehaviour
         DataManager.Instance.additionalAttackSpeed = 0;
 
         DataManager.Instance.specialWeaponGet = false;
+        */
 
         Debug.Log("시작");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Stage");
     }
     public void GameQuit()
     {

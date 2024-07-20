@@ -18,8 +18,12 @@ public class StartController : MonoBehaviour
 
     public void GameStart()
     {
+        NewDataManager.Instance.LongEnemyCount = 3;
+        NewDataManager.Instance.ShortEnemyCount = 2;
+        NewDataManager.Instance.BasicEnemyCount = 4;
+
 
         Debug.Log("시작");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game_Test");
     }
 }
