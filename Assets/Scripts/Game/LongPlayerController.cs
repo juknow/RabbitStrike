@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicPlayerController : MonoBehaviour
+public class LongPlayerController : MonoBehaviour
 {
     private Transform EnemyTransform;
     private List<GameObject> enemiesInRange = new List<GameObject>();

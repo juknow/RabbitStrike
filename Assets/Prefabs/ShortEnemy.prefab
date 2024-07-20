@@ -684,6 +684,7 @@ GameObject:
   - component: {fileID: 3885698754619578458}
   - component: {fileID: 198887236054997801}
   - component: {fileID: 5345169318758662430}
+  - component: {fileID: -6535377142526049454}
   m_Layer: 7
   m_Name: ShortEnemy
   m_TagString: Enemy
@@ -780,6 +781,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5904689, y: 1.0583866}
   m_EdgeRadius: 0
+--- !u!114 &-6535377142526049454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7857484277409622652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ca5e7a9157285438e32c218c1c314b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8831180562166487045
 GameObject:
   m_ObjectHideFlags: 0
