@@ -13,6 +13,8 @@ TagManager:
   - BOSS
   - EnemyNumber
   - ITEM
+  - PlayerWeapon
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX

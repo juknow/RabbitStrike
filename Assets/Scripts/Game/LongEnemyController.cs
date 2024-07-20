@@ -7,7 +7,7 @@ public class LongEnemyController : MonoBehaviour
     private Transform PlayerTransform;
     private List<GameObject> playersInRange = new List<GameObject>();
 
-    private float moveSpeed = 5.0f;
+    private float moveSpeed = 2.0f;
 
     // Start is called before the first frame update
     void Start()
