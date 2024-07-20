@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1944269158725882502}
   - component: {fileID: 602190978161410174}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9023085526656631490}
   - component: {fileID: 905315934336487824}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6558289623999094603}
   - component: {fileID: 5619853015998605680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7625987829815556941}
   - component: {fileID: 422169350407174890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6581776568312013124}
   - component: {fileID: 7989628449421466843}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ear2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2979214225942444720}
   - component: {fileID: 2623815874447566107}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5808688011866243217}
   - component: {fileID: -826117072838120851}
-  m_Layer: 0
+  - component: {fileID: -4947502912011984166}
+  m_Layer: 7
   m_Name: RabbitType3
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -570,6 +571,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &-4947502912011984166
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4366912066320368846}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04812622, y: -0.12030029}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.90374756, y: 1.6149902}
+  m_EdgeRadius: 0
 --- !u!1 &5586890294067673738
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7151516603475911708}
   - component: {fileID: 7639352961025587115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ear1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4009956445526758096}
   - component: {fileID: 5554715682383875082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5152908056796299770}
   - component: {fileID: 6859720497674339051}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player_Outfit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
