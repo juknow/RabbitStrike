@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8112301885636241487}
   - component: {fileID: 4426951476539556646}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ear2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7000992760739004884}
   - component: {fileID: 8008063360224329280}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6665014741164702318}
   - component: {fileID: 6181182486660803011}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1043312085750933153}
   - component: {fileID: 3706023958463041796}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7074248109164248071}
   - component: {fileID: 7918837811792937073}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player_Outfit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7253982256371804490}
   - component: {fileID: 389462850084040126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 932662554401235070}
-  m_Layer: 0
+  - component: {fileID: 5048628016151212473}
+  - component: {fileID: 8447932187385423625}
+  m_Layer: 7
   m_Name: RabbitType1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,6 +544,78 @@ Transform:
   - {fileID: 7074248109164248071}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &5048628016151212473
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823334869703990617}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &8447932187385423625
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823334869703990617}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.066345215, y: -0.09951782}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8673096, y: 1.5333862}
+  m_EdgeRadius: 0
 --- !u!1 &9173866983117899087
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4164391548510264512}
   - component: {fileID: 6179833378869042557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ear1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
