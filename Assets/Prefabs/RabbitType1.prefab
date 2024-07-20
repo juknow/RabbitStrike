@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 932662554401235070}
   - component: {fileID: 5048628016151212473}
   - component: {fileID: 8447932187385423625}
+  - component: {fileID: 1133315846087105908}
   m_Layer: 7
   m_Name: RabbitType1
   m_TagString: Player
@@ -616,6 +617,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8673096, y: 1.5333862}
   m_EdgeRadius: 0
+--- !u!114 &1133315846087105908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823334869703990617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c05c47d875a1a84b901f13166a2fa7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicPlayer: {fileID: 0}
 --- !u!1 &9173866983117899087
 GameObject:
   m_ObjectHideFlags: 0
