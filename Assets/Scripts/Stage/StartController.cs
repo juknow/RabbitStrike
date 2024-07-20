@@ -21,6 +21,9 @@ public class StartController : MonoBehaviour
         NewDataManager.Instance.LongEnemyCount = 3;
         NewDataManager.Instance.ShortEnemyCount = 2;
         NewDataManager.Instance.BasicEnemyCount = 4;
+        NewDataManager.Instance.LongPlayerCount = 3;
+        NewDataManager.Instance.ShortPlayerCount = 2;
+        NewDataManager.Instance.BasicPlayerCount = 4;
 
 
         Debug.Log("시작");

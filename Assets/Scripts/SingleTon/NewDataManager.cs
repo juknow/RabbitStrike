@@ -12,6 +12,10 @@ public class NewDataManager : MonoBehaviour
     private int longEnemyCount;
     private int basicEnemyCount;
 
+    private int shortPlayerCount;
+    private int longPlayerCount;
+    private int basicPlayerCount;
+
 
     private int stageLevel;
     private float speed;
@@ -60,6 +64,21 @@ public class NewDataManager : MonoBehaviour
     {
         get { return basicEnemyCount; }
         set { basicEnemyCount = value; }
+    }
+    public int ShortPlayerCount
+    {
+        get { return shortPlayerCount; }
+        set { shortPlayerCount = value; }
+    }
+    public int LongPlayerCount
+    {
+        get { return longPlayerCount; }
+        set { longPlayerCount = value; }
+    }
+    public int BasicPlayerCount
+    {
+        get { return basicPlayerCount; }
+        set { basicPlayerCount = value; }
     }
     public int StageLevel
     {
