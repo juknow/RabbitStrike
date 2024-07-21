@@ -52,6 +52,7 @@ public class ShortPlayerController : MonoBehaviour
         // Die mechanism
         if (myHP <= 0f)
         {
+            Debug.Log("숏 적 죽음");
             Destroy(gameObject);
         }
     }
@@ -59,7 +60,7 @@ public class ShortPlayerController : MonoBehaviour
     {
         if (other.CompareTag("EnemyWeapon"))
         {
-            Debug.Log("적 무기 맞음!");
+            Debug.Log("숏 적 까이고있음");
             myHP -= myattack;
         }
     }

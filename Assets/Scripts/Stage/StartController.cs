@@ -19,49 +19,49 @@ public class StartController : MonoBehaviour
     public void GameStart()
     {
         //TypeCount
-        NewDataManager.Instance.LongEnemyCount = 3;
-        NewDataManager.Instance.ShortEnemyCount = 2;
+        NewDataManager.Instance.LongEnemyCount = 5;
+        NewDataManager.Instance.ShortEnemyCount = 3;
         NewDataManager.Instance.BasicEnemyCount = 4;
-        NewDataManager.Instance.LongPlayerCount = 3;
-        NewDataManager.Instance.ShortPlayerCount = 2;
+        NewDataManager.Instance.LongPlayerCount = 5;
+        NewDataManager.Instance.ShortPlayerCount = 3;
         NewDataManager.Instance.BasicPlayerCount = 4;
 
         //StatSetting
 
         //BasicPlayer
-        NewDataManager.Instance.BasicPlayerHP = 20.0f;
+        NewDataManager.Instance.BasicPlayerHP = 200.0f;
         NewDataManager.Instance.BasicPlayerMoveSpeed = 5.0f;
         NewDataManager.Instance.BasicPlayerAttackDamage = 1.0f;
         NewDataManager.Instance.BasicPlayerAttackCooldown = 1.0f;
 
         //ShortPlayer
-        NewDataManager.Instance.ShortPlayerHP = 20.0f;
+        NewDataManager.Instance.ShortPlayerHP = 200.0f;
         NewDataManager.Instance.ShortPlayerMoveSpeed = 3.0f;
         NewDataManager.Instance.ShortPlayerAttackDamage = 1.0f;
         NewDataManager.Instance.ShortPlayerAttackCooldown = 1.0f;
 
         //LongPlayer
 
-        NewDataManager.Instance.LongPlayerHP = 20.0f;
+        NewDataManager.Instance.LongPlayerHP = 200.0f;
         NewDataManager.Instance.LongPlayerMoveSpeed = 2.0f;
         NewDataManager.Instance.LongPlayerAttackDamage = 1.0f;
         NewDataManager.Instance.LongPlayerAttackCooldown = 1.0f;
 
         //BasicEnemy
-        NewDataManager.Instance.BasicEnemyHP = 20.0f;
+        NewDataManager.Instance.BasicEnemyHP = 200.0f;
         NewDataManager.Instance.BasicEnemyMoveSpeed = 5.0f;
         NewDataManager.Instance.BasicEnemyAttackDamage = 1.0f;
         NewDataManager.Instance.BasicEnemyAttackCooldown = 1.0f;
 
         //ShortEnemy
-        NewDataManager.Instance.ShortEnemyHP = 20.0f;
+        NewDataManager.Instance.ShortEnemyHP = 200.0f;
         NewDataManager.Instance.ShortEnemyMoveSpeed = 3.0f;
         NewDataManager.Instance.ShortEnemyAttackDamage = 1.0f;
         NewDataManager.Instance.ShortEnemyAttackCooldown = 1.0f;
 
         //LongEnemy
 
-        NewDataManager.Instance.LongEnemyHP = 20.0f;
+        NewDataManager.Instance.LongEnemyHP = 200.0f;
         NewDataManager.Instance.LongEnemyMoveSpeed = 2.0f;
         NewDataManager.Instance.LongEnemyAttackDamage = 1.0f;
         NewDataManager.Instance.LongEnemyAttackCooldown = 1.0f;

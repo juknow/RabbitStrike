@@ -51,6 +51,7 @@ public class BasicPlayerController : MonoBehaviour
         // Die mechanism
         if (myHP <= 0f)
         {
+            Debug.Log("기본 팀 죽음");
             Destroy(gameObject);
         }
     }
@@ -59,6 +60,7 @@ public class BasicPlayerController : MonoBehaviour
     {
         if (other.CompareTag("EnemyWeapon"))
         {
+            Debug.Log("기본 팀 까이고 있음");
             myHP -= myattack;
         }
     }

@@ -53,6 +53,7 @@ public class LongPlayerController : MonoBehaviour
         // Die mechanism
         if (myHP <= 0f)
         {
+            Debug.Log("롱 팀 죽음");
             Destroy(gameObject);
         }
     }
@@ -60,6 +61,7 @@ public class LongPlayerController : MonoBehaviour
     {
         if (other.CompareTag("EnemyWeapon"))
         {
+            Debug.Log("롱 팀 까이고있음");
             myHP -= myattack;
         }
     }
