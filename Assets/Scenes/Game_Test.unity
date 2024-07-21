@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c081110d2ca05a044988d9b06aa0a504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  longPlayer: {fileID: 1145226800012495453, guid: d12ca9de8be2f57418e3a1a0cbcad592, type: 3}
+  longPlayer: {fileID: 3592156130308035806, guid: d12ca9de8be2f57418e3a1a0cbcad592, type: 3}
 --- !u!1 &2070117205
 GameObject:
   m_ObjectHideFlags: 0

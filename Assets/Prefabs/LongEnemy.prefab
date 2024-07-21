@@ -679,6 +679,8 @@ GameObject:
   - component: {fileID: 5345169318758662430}
   - component: {fileID: 5914261738130880347}
   - component: {fileID: -1040381217042270404}
+  - component: {fileID: 5869761198098436530}
+  - component: {fileID: 6069496681617108355}
   m_Layer: 7
   m_Name: LongEnemy
   m_TagString: Enemy
@@ -787,6 +789,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bf2eb2dad54dd44960bb4e5cd69ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5869761198098436530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7857484277409622652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bb0cce961b712428071967c5e4deea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInRange: 0
+--- !u!95 &6069496681617108355
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7857484277409622652}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48aeccae4f3f61b49862815baccf2b9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8368211600481640928
 GameObject:
   m_ObjectHideFlags: 0

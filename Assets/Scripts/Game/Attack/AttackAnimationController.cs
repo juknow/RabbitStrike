@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicPlayerAttack : MonoBehaviour
+public class AttackAnimationController : MonoBehaviour
 {
     private Animator animator;
     public bool isInRange;
