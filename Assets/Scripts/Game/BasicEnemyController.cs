@@ -14,7 +14,7 @@ public class ShortEnemyController : MonoBehaviour
     void Start()
     {
         //NewDataManager.Instance.LongEnemyCount;
-        myHP = 10.0f;
+        myHP = 20.0f;
         moveSpeed = 5.0f;
         myattack = 1.0f;
         damageCooldown = 1.0f;

@@ -8,6 +8,8 @@ public class NewDataManager : MonoBehaviour
     public static NewDataManager Instance { get; private set; }
 
     // Private fields for user stats
+
+    //StageTypeCount
     private int shortEnemyCount;
     private int longEnemyCount;
     private int basicEnemyCount;
@@ -16,6 +18,63 @@ public class NewDataManager : MonoBehaviour
     private int longPlayerCount;
     private int basicPlayerCount;
 
+    //BasicPlayer
+    private float basicPlayerHP;
+    private float basicPlayerMoveSpeed;
+
+    private float basicPlayerAttackDamage;
+
+    private float basicPlayerAttackCooldown;
+
+    //ShortPlayer
+
+    private float shortPlayerHP;
+    private float shortPlayerMoveSpeed;
+
+    private float shortPlayerAttackDamage;
+
+    private float shortPlayerAttackCooldown;
+
+    //LongPlayer
+
+    private float longPlayerHP;
+    private float longPlayerMoveSpeed;
+
+    private float longPlayerAttackDamage;
+
+    private float longPlayerAttackCooldown;
+
+    //BasicEnemy
+
+    private float basicEnemyHP;
+    private float basicEnemyMoveSpeed;
+
+    private float basicEnemyAttackDamage;
+
+    private float basicEnemyAttackCooldown;
+
+
+    //ShortEnemy
+
+    private float shortEnemyHP;
+    private float shortEnemyMoveSpeed;
+
+    private float shortEnemyAttackDamage;
+
+    private float shortEnemyAttackCooldown;
+
+
+    //LongEnemy
+
+
+    private float longEnemyHP;
+    private float longEnemyMoveSpeed;
+
+    private float longEnemyAttackDamage;
+
+    private float longEnemyAttackCooldown;
+
+    //
 
     private int stageLevel;
     private float speed;
@@ -50,6 +109,8 @@ public class NewDataManager : MonoBehaviour
     public bool beHit = false;
 
     // getset 에 접근하게 해주는 프로퍼티
+
+    //StageTypeCount
     public int ShortEnemyCount
     {
         get { return shortEnemyCount; }
@@ -80,6 +141,165 @@ public class NewDataManager : MonoBehaviour
         get { return basicPlayerCount; }
         set { basicPlayerCount = value; }
     }
+    //BasicPlayer
+    public float BasicPlayerHP
+    {
+        get { return basicPlayerHP; }
+        set { basicPlayerHP = value; }
+    }
+
+    public float BasicPlayerMoveSpeed
+    {
+        get { return basicPlayerMoveSpeed; }
+        set { basicPlayerMoveSpeed = value; }
+    }
+
+    public float BasicPlayerAttackDamage
+    {
+        get { return basicPlayerAttackDamage; }
+        set { basicPlayerAttackDamage = value; }
+    }
+
+    public float BasicPlayerAttackCooldown
+    {
+        get { return basicPlayerAttackCooldown; }
+        set { basicPlayerAttackCooldown = value; }
+    }
+
+
+    //ShortPlayer
+
+    public float ShortPlayerHP
+    {
+        get { return shortPlayerHP; }
+        set { shortPlayerHP = value; }
+    }
+
+    public float ShortPlayerMoveSpeed
+    {
+        get { return shortPlayerMoveSpeed; }
+        set { shortPlayerMoveSpeed = value; }
+    }
+
+    public float ShortPlayerAttackDamage
+    {
+        get { return shortPlayerAttackDamage; }
+        set { shortPlayerAttackDamage = value; }
+    }
+
+    public float ShortPlayerAttackCooldown
+    {
+        get { return shortPlayerAttackCooldown; }
+        set { shortPlayerAttackCooldown = value; }
+    }
+
+    //LongPlayer
+    public float LongPlayerHP
+    {
+        get { return longPlayerHP; }
+        set { longPlayerHP = value; }
+    }
+
+    public float LongPlayerMoveSpeed
+    {
+        get { return longPlayerMoveSpeed; }
+        set { longPlayerMoveSpeed = value; }
+    }
+
+    public float LongPlayerAttackDamage
+    {
+        get { return longPlayerAttackDamage; }
+        set { longPlayerAttackDamage = value; }
+    }
+
+    public float LongPlayerAttackCooldown
+    {
+        get { return longPlayerAttackCooldown; }
+        set { longPlayerAttackCooldown = value; }
+    }
+
+    //BasicEnemy
+
+    public float BasicEnemyHP
+    {
+        get { return basicEnemyHP; }
+        set { basicEnemyHP = value; }
+    }
+
+    public float BasicEnemyMoveSpeed
+    {
+        get { return basicEnemyMoveSpeed; }
+        set { basicEnemyMoveSpeed = value; }
+    }
+
+    public float BasicEnemyAttackDamage
+    {
+        get { return basicEnemyAttackDamage; }
+        set { basicEnemyAttackDamage = value; }
+    }
+
+    public float BasicEnemyAttackCooldown
+    {
+        get { return basicEnemyAttackCooldown; }
+        set { basicEnemyAttackCooldown = value; }
+    }
+
+
+
+    //ShortEnemy
+
+    public float ShortEnemyHP
+    {
+        get { return shortEnemyHP; }
+        set { shortEnemyHP = value; }
+    }
+
+    public float ShortEnemyMoveSpeed
+    {
+        get { return shortEnemyMoveSpeed; }
+        set { shortEnemyMoveSpeed = value; }
+    }
+
+    public float ShortEnemyAttackDamage
+    {
+        get { return shortEnemyAttackDamage; }
+        set { shortEnemyAttackDamage = value; }
+    }
+
+    public float ShortEnemyAttackCooldown
+    {
+        get { return shortEnemyAttackCooldown; }
+        set { shortEnemyAttackCooldown = value; }
+    }
+
+
+    //LongEnemy
+
+    public float LongEnemyHP
+    {
+        get { return longEnemyHP; }
+        set { longEnemyHP = value; }
+    }
+
+    public float LongEnemyMoveSpeed
+    {
+        get { return longEnemyMoveSpeed; }
+        set { longEnemyMoveSpeed = value; }
+    }
+
+    public float LongEnemyAttackDamage
+    {
+        get { return longEnemyAttackDamage; }
+        set { longEnemyAttackDamage = value; }
+    }
+
+    public float LongEnemyAttackCooldown
+    {
+        get { return longEnemyAttackCooldown; }
+        set { longEnemyAttackCooldown = value; }
+    }
+
+    //
     public int StageLevel
     {
         get { return stageLevel; }
