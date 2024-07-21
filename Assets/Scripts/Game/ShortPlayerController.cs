@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class ShortPlayerController : MonoBehaviour
 {
+    private float myHP, myattack, damageCooldown, moveSpeed;
+    private bool canTakeDamage;
+
     private Transform EnemyTransform;
     private List<GameObject> enemiesInRange = new List<GameObject>();
 
-    private float moveSpeed = 3.0f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         //NewDataManager.Instance.LongEnemyCount;
+        myHP = NewDataManager.Instance.ShortPlayerHP;
+        moveSpeed = NewDataManager.Instance.ShortPlayerMoveSpeed;
+        myattack = NewDataManager.Instance.ShortPlayerAttackDamage;
+        damageCooldown = NewDataManager.Instance.ShortPlayerAttackCooldown;
+        canTakeDamage = true;
     }
 
     // Update is called once per frame
@@ -40,6 +48,19 @@ public class ShortPlayerController : MonoBehaviour
                 EnemyTransform = enemy.transform;
                 transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
             }
+        }
+        // Die mechanism
+        if (myHP <= 0f)
+        {
+            Destroy(gameObject);
+        }
+    }
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("EnemyWeapon"))
+        {
+            Debug.Log("적 무기 맞음!");
+            myHP -= myattack;
         }
     }
 

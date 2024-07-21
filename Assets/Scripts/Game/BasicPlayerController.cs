@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class BasicPlayerController : MonoBehaviour
 {
+    private float myHP, myattack, damageCooldown, moveSpeed;
+    private bool canTakeDamage;
     private Transform EnemyTransform;
     private List<GameObject> enemiesInRange = new List<GameObject>();
 
-    private float moveSpeed = 5.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         //NewDataManager.Instance.LongEnemyCount;
+        myHP = NewDataManager.Instance.BasicPlayerHP;
+        moveSpeed = NewDataManager.Instance.BasicPlayerMoveSpeed;
+        myattack = NewDataManager.Instance.BasicPlayerAttackDamage;
+        damageCooldown = NewDataManager.Instance.BasicPlayerAttackCooldown;
+        canTakeDamage = true;
     }
 
     // Update is called once per frame
@@ -40,6 +46,20 @@ public class BasicPlayerController : MonoBehaviour
                 EnemyTransform = enemy.transform;
                 transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
             }
+        }
+
+        // Die mechanism
+        if (myHP <= 0f)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("EnemyWeapon"))
+        {
+            myHP -= myattack;
         }
     }
 

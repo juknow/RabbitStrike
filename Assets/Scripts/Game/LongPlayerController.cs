@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class LongPlayerController : MonoBehaviour
 {
+    private float myHP, myattack, damageCooldown, moveSpeed;
+    private bool canTakeDamage;
     private Transform EnemyTransform;
     private List<GameObject> enemiesInRange = new List<GameObject>();
 
-    private float moveSpeed = 2.0f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         //NewDataManager.Instance.LongEnemyCount;
+        myHP = NewDataManager.Instance.LongPlayerHP;
+        moveSpeed = NewDataManager.Instance.LongPlayerMoveSpeed;
+        myattack = NewDataManager.Instance.LongPlayerAttackDamage;
+        damageCooldown = NewDataManager.Instance.LongPlayerAttackCooldown;
+        canTakeDamage = true;
     }
 
     // Update is called once per frame
@@ -40,9 +47,22 @@ public class LongPlayerController : MonoBehaviour
                 EnemyTransform = enemy.transform;
                 transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
             }
+
+        }
+
+        // Die mechanism
+        if (myHP <= 0f)
+        {
+            Destroy(gameObject);
         }
     }
-
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("EnemyWeapon"))
+        {
+            myHP -= myattack;
+        }
+    }
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
