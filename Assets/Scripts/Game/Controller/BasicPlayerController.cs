@@ -9,6 +9,8 @@ public class BasicPlayerController : MonoBehaviour
     private Transform EnemyTransform;
     private List<GameObject> enemiesInRange = new List<GameObject>();
 
+    private AttackAnimationController attackAnimationController;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,9 @@ public class BasicPlayerController : MonoBehaviour
         myattack = NewDataManager.Instance.BasicPlayerAttackDamage;
         damageCooldown = NewDataManager.Instance.BasicPlayerAttackCooldown;
         canTakeDamage = true;
+
+        // Get the AttackAnimationController component
+        attackAnimationController = GetComponent<AttackAnimationController>();
     }
 
     // Update is called once per frame
@@ -29,10 +34,15 @@ public class BasicPlayerController : MonoBehaviour
         EnemyTransform = enemy.transform;
         transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
         */
+        // Check if we are in range to attack
+        if (attackAnimationController.isInRange)
+        {
+            return; // Stop moving if we are in range
+        }
         if (enemiesInRange.Count > 0)
         {
             GameObject closestEnemy = GetClosestEnemy();
-            if (closestEnemy != null)
+            if (closestEnemy != null && attackAnimationController.isInRange == false)
             {
                 EnemyTransform = closestEnemy.transform;
                 transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
@@ -41,7 +51,7 @@ public class BasicPlayerController : MonoBehaviour
         else
         {
             GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-            if (enemy != null)
+            if (enemy != null && attackAnimationController.isInRange == false)
             {
                 EnemyTransform = enemy.transform;
                 transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
@@ -58,11 +68,7 @@ public class BasicPlayerController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("EnemyWeapon"))
-        {
-            Debug.Log("기본 팀 까이고 있음");
-            myHP -= myattack;
-        }
+
     }
 
     void OnTriggerExit2D(Collider2D other)

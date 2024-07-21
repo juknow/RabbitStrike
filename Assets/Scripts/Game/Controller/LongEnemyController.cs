@@ -9,6 +9,8 @@ public class LongEnemyController : MonoBehaviour
     private Transform PlayerTransform;
     private List<GameObject> playersInRange = new List<GameObject>();
 
+    private AttackAnimationController attackAnimationController;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,9 @@ public class LongEnemyController : MonoBehaviour
         myattack = NewDataManager.Instance.LongEnemyAttackDamage;
         damageCooldown = NewDataManager.Instance.LongEnemyAttackCooldown;
         canTakeDamage = true;
+
+        // Get the AttackAnimationController component
+        attackAnimationController = GetComponent<AttackAnimationController>();
     }
 
     // Update is called once per frame
@@ -32,7 +37,7 @@ public class LongEnemyController : MonoBehaviour
         if (playersInRange.Count > 0)
         {
             GameObject closestPlayer = GetClosestPlayer();
-            if (closestPlayer != null)
+            if (closestPlayer != null && attackAnimationController.isInRange == false)
             {
                 PlayerTransform = closestPlayer.transform;
                 transform.position = Vector2.MoveTowards(transform.position, PlayerTransform.position, moveSpeed * Time.deltaTime);
@@ -41,7 +46,7 @@ public class LongEnemyController : MonoBehaviour
         else
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
+            if (player != null && attackAnimationController.isInRange == false)
             {
                 PlayerTransform = player.transform;
                 transform.position = Vector2.MoveTowards(transform.position, PlayerTransform.position, moveSpeed * Time.deltaTime);
@@ -57,11 +62,6 @@ public class LongEnemyController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerWeapon"))
-        {
-            Debug.Log("롱 적 까이고 있음");
-            myHP -= myattack;
-        }
     }
 
     void OnTriggerExit2D(Collider2D other)

@@ -10,6 +10,8 @@ public class ShortEnemyController : MonoBehaviour
     private List<GameObject> playersInRange = new List<GameObject>();
     private float moveSpeed;
 
+    private AttackAnimationController attackAnimationController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,9 @@ public class ShortEnemyController : MonoBehaviour
         myattack = NewDataManager.Instance.BasicEnemyAttackDamage;
         damageCooldown = NewDataManager.Instance.BasicEnemyAttackCooldown;
         canTakeDamage = true;
+
+        // Get the AttackAnimationController component
+        attackAnimationController = GetComponent<AttackAnimationController>();
     }
 
     // Update is called once per frame
@@ -32,7 +37,7 @@ public class ShortEnemyController : MonoBehaviour
         if (playersInRange.Count > 0)
         {
             GameObject closestPlayer = GetClosestPlayer();
-            if (closestPlayer != null)
+            if (closestPlayer != null && attackAnimationController.isInRange == false)
             {
                 PlayerTransform = closestPlayer.transform;
                 transform.position = Vector2.MoveTowards(transform.position, PlayerTransform.position, moveSpeed * Time.deltaTime);
@@ -41,7 +46,7 @@ public class ShortEnemyController : MonoBehaviour
         else
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
+            if (player != null && attackAnimationController.isInRange == false)
             {
                 PlayerTransform = player.transform;
                 transform.position = Vector2.MoveTowards(transform.position, PlayerTransform.position, moveSpeed * Time.deltaTime);
@@ -58,11 +63,7 @@ public class ShortEnemyController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerWeapon"))
-        {
-            Debug.Log("기본적 까이고 있음");
-            myHP -= myattack;
-        }
+
     }
 
 
