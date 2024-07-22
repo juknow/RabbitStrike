@@ -10,6 +10,7 @@ public class NewDataManager : MonoBehaviour
     // Private fields for user stats
 
     //StageTypeCount
+    private int cost;
     private int shortEnemyCount;
     private int longEnemyCount;
     private int basicEnemyCount;
@@ -111,6 +112,13 @@ public class NewDataManager : MonoBehaviour
     // getset 에 접근하게 해주는 프로퍼티
 
     //StageTypeCount
+
+    public int Cost
+    {
+        get { return cost; }
+        set { cost = value; }
+    }
+
     public int ShortEnemyCount
     {
         get { return shortEnemyCount; }

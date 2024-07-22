@@ -21,9 +21,11 @@ public class ShortNumberController : MonoBehaviour
 
     public void NumberPlus()
     {
-        NewDataManager.Instance.ShortPlayerCount++;
-        UpdateInfoText();
-
+        if (NewDataManager.Instance.Cost >= 500)
+        {
+            NewDataManager.Instance.ShortPlayerCount++;
+            UpdateInfoText();
+        }
     }
     public void NumberMinus()
     {

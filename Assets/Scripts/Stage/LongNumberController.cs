@@ -22,8 +22,11 @@ public class LongNumberController : MonoBehaviour
 
     public void NumberPlus()
     {
-        NewDataManager.Instance.LongPlayerCount++;
-        UpdateInfoText();
+        if (NewDataManager.Instance.Cost >= 500)
+        {
+            NewDataManager.Instance.LongPlayerCount++;
+            UpdateInfoText();
+        }
 
     }
     public void NumberMinus()

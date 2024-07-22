@@ -21,8 +21,11 @@ public class BasicNumberController : MonoBehaviour
 
     public void NumberPlus()
     {
-        NewDataManager.Instance.BasicPlayerCount++;
-        UpdateInfoText();
+        if (NewDataManager.Instance.Cost >= 300)
+        {
+            NewDataManager.Instance.BasicPlayerCount++;
+            UpdateInfoText();
+        }
 
     }
     public void NumberMinus()
