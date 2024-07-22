@@ -37,6 +37,7 @@ public class BasicPlayerController : MonoBehaviour, IController
         {
             Debug.Log("기본 팀 죽음");
             Destroy(gameObject);
+            return;
         }
         //find first coming Enemy. but current system is not following this logic. it may finds first order object.
         /*GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
@@ -47,11 +48,16 @@ public class BasicPlayerController : MonoBehaviour, IController
         if (findAnyone)
         {
             FindClosestEnemy();
+
         }
 
         if (!findAnyone && closestEnemy != null)
         {
             HandleEnemyInteraction();
+        }
+        else if (!findAnyone && closestEnemy == null)
+        {
+            ResetEnemySearch();
         }
 
         /*if (attackAnimationController.isInRange)
@@ -81,7 +87,9 @@ public class BasicPlayerController : MonoBehaviour, IController
 
     void FindClosestEnemy()
     {
+        Debug.Log("적 찾는중");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        closestDistance = Mathf.Infinity; // Reset closest distance for new search
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
@@ -96,6 +104,7 @@ public class BasicPlayerController : MonoBehaviour, IController
         if (closestEnemy != null)
         {
             findAnyone = false;
+
         }
     }
 
@@ -124,7 +133,8 @@ public class BasicPlayerController : MonoBehaviour, IController
         Debug.Log("다시 적 찾기");
         findAnyone = true;
         closestDistance = Mathf.Infinity;
-        closestEnemy = null;
+        closestEnemy = null; // Clear the current closest enemy
+
     }
 
 
