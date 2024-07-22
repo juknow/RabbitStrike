@@ -150,6 +150,10 @@ public class ShortPlayerController : MonoBehaviour, IController
     {
         myHP -= damage;
         Debug.Log("Received damage: " + damage + ", HP left: " + myHP);
+        this.transform.Find("Player_Outfit").transform.Find("Body").gameObject.GetComponent<HirEffect>().OnHit();
+        this.transform.Find("Player_Outfit").transform.Find("Head").gameObject.GetComponent<HirEffect>().OnHit();
+        this.transform.Find("Player_Outfit").transform.Find("Ear1").gameObject.GetComponent<HirEffect>().OnHit();
+        this.transform.Find("Player_Outfit").transform.Find("Ear2").gameObject.GetComponent<HirEffect>().OnHit();
     }
     /*
         void OnTriggerExit2D(Collider2D other)

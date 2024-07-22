@@ -30,6 +30,7 @@ public class ShortEnemyController : MonoBehaviour, IController
 
         // Get the AttackAnimationController component
         attackAnimationController = GetComponent<AttackAnimationController>();
+
     }
 
     // Update is called once per frame
@@ -129,35 +130,10 @@ public class ShortEnemyController : MonoBehaviour, IController
     {
         myHP -= damage;
         Debug.Log("Received damage: " + damage + ", HP left: " + myHP);
+        this.transform.Find("Player_Outfit").transform.Find("Body").gameObject.GetComponent<HirEffect>().OnHit();
+        this.transform.Find("Player_Outfit").transform.Find("Head").gameObject.GetComponent<HirEffect>().OnHit();
+        this.transform.Find("Player_Outfit").transform.Find("Ear1").gameObject.GetComponent<HirEffect>().OnHit();
+        this.transform.Find("Player_Outfit").transform.Find("Ear2").gameObject.GetComponent<HirEffect>().OnHit();
     }
-
-    /*
-        void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                playersInRange.Remove(other.gameObject); // Remove the enemy from the list when it exits the collider
-            }
-        }
-    */
-
-    /*
-        GameObject GetClosestPlayer()
-        {
-            GameObject closestPlayer = null;
-            float closestDistance = Mathf.Infinity;
-
-            foreach (GameObject player in playersInRange)
-            {
-                float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-                if (distanceToPlayer < closestDistance)
-                {
-                    closestDistance = distanceToPlayer;
-                    closestPlayer = player;
-                }
-            }
-
-            return closestPlayer;
-        }
-        */
 }
+

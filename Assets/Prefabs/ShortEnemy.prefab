@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7589084901189641305}
   - component: {fileID: 6792207617141550428}
+  - component: {fileID: 8708368973563590568}
   m_Layer: 7
   m_Name: Right Eye
   m_TagString: Untagged
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,6 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!114 &8708368973563590568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595881480853946005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99885473d3f59b4692614f5c04c81ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMaterial: {fileID: 2100000, guid: 43bca12a0dedf1d44b16e48b0785f994, type: 2}
 --- !u!1 &3008723144031343474
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7273493832919838645}
   - component: {fileID: 1963998400755392954}
+  - component: {fileID: 4618945673866673788}
   m_Layer: 7
   m_Name: Ear1
   m_TagString: Untagged
@@ -136,7 +151,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,6 +183,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4618945673866673788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008723144031343474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99885473d3f59b4692614f5c04c81ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMaterial: {fileID: 2100000, guid: 43bca12a0dedf1d44b16e48b0785f994, type: 2}
 --- !u!1 &3009632543996632464
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8518627990461446218}
   - component: {fileID: 1913700228756810148}
+  - component: {fileID: 3975307492995522269}
   m_Layer: 7
   m_Name: Ear2
   m_TagString: Untagged
@@ -220,7 +249,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -252,6 +281,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3975307492995522269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3009632543996632464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99885473d3f59b4692614f5c04c81ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMaterial: {fileID: 2100000, guid: 43bca12a0dedf1d44b16e48b0785f994, type: 2}
 --- !u!1 &3335449476707570908
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630777846840106396}
   - component: {fileID: 8363921711967594513}
+  - component: {fileID: 8720041235751480175}
   m_Layer: 7
   m_Name: Left Eye
   m_TagString: Untagged
@@ -304,7 +347,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -336,6 +379,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!114 &8720041235751480175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335449476707570908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99885473d3f59b4692614f5c04c81ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMaterial: {fileID: 2100000, guid: 43bca12a0dedf1d44b16e48b0785f994, type: 2}
 --- !u!1 &3719685890072035869
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3560875669071956146}
   - component: {fileID: 4959553905467458733}
+  - component: {fileID: 3302440400091907085}
   m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
@@ -388,7 +445,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -420,6 +477,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3302440400091907085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719685890072035869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99885473d3f59b4692614f5c04c81ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMaterial: {fileID: 2100000, guid: 43bca12a0dedf1d44b16e48b0785f994, type: 2}
 --- !u!1 &4706282279339822832
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6599981528999215240}
   - component: {fileID: 3696473352021634663}
+  - component: {fileID: 5848810115427598197}
   m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
@@ -731,7 +802,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -763,6 +834,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5848810115427598197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7848638284130417624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99885473d3f59b4692614f5c04c81ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMaterial: {fileID: 2100000, guid: 43bca12a0dedf1d44b16e48b0785f994, type: 2}
 --- !u!1 &7857484277409622652
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +1014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2816095546278123447}
   m_Layer: 7
-  m_Name: Player Outfit
+  m_Name: Player_Outfit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
