@@ -38,6 +38,7 @@ public class ReadyController : MonoBehaviour
                 NewDataManager.Instance.ShortEnemyCount = 5;
                 NewDataManager.Instance.LongEnemyCount = 5;
                 break;
+            // 병종이 섞였을 땐 어떻게 대처해야할까? 
             case (7):
                 NewDataManager.Instance.BasicEnemyCount = 4;
                 NewDataManager.Instance.ShortEnemyCount = 4;
@@ -54,34 +55,9 @@ public class ReadyController : MonoBehaviour
                 NewDataManager.Instance.LongEnemyCount = 4;
                 break;
             case (10):
-                NewDataManager.Instance.BasicEnemyCount = 4;
-                NewDataManager.Instance.ShortEnemyCount = 4;
-                NewDataManager.Instance.LongEnemyCount = 8;
-                break;
-            case (11):
-                NewDataManager.Instance.BasicEnemyCount = 8;
-                NewDataManager.Instance.ShortEnemyCount = 4;
-                NewDataManager.Instance.LongEnemyCount = 6;
-                break;
-            case (12):
                 NewDataManager.Instance.BasicEnemyCount = 8;
                 NewDataManager.Instance.ShortEnemyCount = 6;
-                NewDataManager.Instance.LongEnemyCount = 4;
-                break;
-            case (13):
-                NewDataManager.Instance.BasicEnemyCount = 4;
-                NewDataManager.Instance.ShortEnemyCount = 6;
-                NewDataManager.Instance.LongEnemyCount = 6;
-                break;
-            case (14):
-                NewDataManager.Instance.BasicEnemyCount = 10;
-                NewDataManager.Instance.ShortEnemyCount = 5;
                 NewDataManager.Instance.LongEnemyCount = 8;
-                break;
-            case (15):
-                NewDataManager.Instance.BasicEnemyCount = 0;
-                NewDataManager.Instance.ShortEnemyCount = 8;
-                NewDataManager.Instance.LongEnemyCount = 10;
                 break;
         }
 
@@ -89,7 +65,7 @@ public class ReadyController : MonoBehaviour
 
     void Update()
     {
-        if (NewDataManager.Instance.StageLevel >= 6)
+        if (NewDataManager.Instance.StageLevel >= 11)
         {
             SceneManager.LoadScene("GameWin");
         }

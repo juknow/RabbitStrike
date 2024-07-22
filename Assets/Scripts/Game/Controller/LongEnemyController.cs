@@ -148,10 +148,23 @@ public class LongEnemyController : MonoBehaviour, IController
     {
         myHP -= damage;
         Debug.Log("Received damage: " + damage + ", HP left: " + myHP);
-        this.transform.Find("Player_Outfit").transform.Find("Body").gameObject.GetComponent<HirEffect>().OnHit();
-        this.transform.Find("Player_Outfit").transform.Find("Head").gameObject.GetComponent<HirEffect>().OnHit();
-        this.transform.Find("Player_Outfit").transform.Find("Ear1").gameObject.GetComponent<HirEffect>().OnHit();
-        this.transform.Find("Player_Outfit").transform.Find("Ear2").gameObject.GetComponent<HirEffect>().OnHit();
+        StartCoroutine(DamageEffect());
+    }
+
+    private IEnumerator DamageEffect()
+    {
+        Transform outfitTransform = this.transform.Find("Player_Outfit");
+        outfitTransform.Find("Body").GetComponent<SpriteRenderer>().color = Color.red;
+        outfitTransform.Find("Head").GetComponent<SpriteRenderer>().color = Color.red;
+        outfitTransform.Find("Ear1").GetComponent<SpriteRenderer>().color = Color.red;
+        outfitTransform.Find("Ear2").GetComponent<SpriteRenderer>().color = Color.red;
+
+        yield return new WaitForSeconds(0.3f);
+
+        outfitTransform.Find("Body").GetComponent<SpriteRenderer>().color = Color.black;
+        outfitTransform.Find("Head").GetComponent<SpriteRenderer>().color = Color.black;
+        outfitTransform.Find("Ear1").GetComponent<SpriteRenderer>().color = Color.black;
+        outfitTransform.Find("Ear2").GetComponent<SpriteRenderer>().color = Color.black;
     }
 
     void OnTriggerStay2D(Collider2D other)
