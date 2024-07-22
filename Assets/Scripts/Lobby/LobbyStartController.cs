@@ -14,15 +14,15 @@ public class LobbyStartController : MonoBehaviour
         //StatSetting
 
         //BasicPlayer
-        NewDataManager.Instance.BasicPlayerHP = 20.0f;
+        NewDataManager.Instance.BasicPlayerHP = 18.0f;
         NewDataManager.Instance.BasicPlayerMoveSpeed = 6.0f;
         NewDataManager.Instance.BasicPlayerAttackDamage = 3.0f;
         NewDataManager.Instance.BasicPlayerAttackCooldown = 1.0f;
 
         //ShortPlayer
-        NewDataManager.Instance.ShortPlayerHP = 20.0f;
+        NewDataManager.Instance.ShortPlayerHP = 24.0f;
         NewDataManager.Instance.ShortPlayerMoveSpeed = 2.0f;
-        NewDataManager.Instance.ShortPlayerAttackDamage = 10.0f;
+        NewDataManager.Instance.ShortPlayerAttackDamage = 9.0f;
         NewDataManager.Instance.ShortPlayerAttackCooldown = 1.0f;
 
         //LongPlayer
@@ -33,15 +33,15 @@ public class LobbyStartController : MonoBehaviour
         NewDataManager.Instance.LongPlayerAttackCooldown = 1.0f;
 
         //BasicEnemy
-        NewDataManager.Instance.BasicEnemyHP = 20.0f;
+        NewDataManager.Instance.BasicEnemyHP = 18.0f;
         NewDataManager.Instance.BasicEnemyMoveSpeed = 6.0f;
         NewDataManager.Instance.BasicEnemyAttackDamage = 3.0f;
         NewDataManager.Instance.BasicEnemyAttackCooldown = 1.0f;
 
         //ShortEnemy
-        NewDataManager.Instance.ShortEnemyHP = 20.0f;
+        NewDataManager.Instance.ShortEnemyHP = 24.0f;
         NewDataManager.Instance.ShortEnemyMoveSpeed = 2.0f;
-        NewDataManager.Instance.ShortEnemyAttackDamage = 10.0f;
+        NewDataManager.Instance.ShortEnemyAttackDamage = 9.0f;
         NewDataManager.Instance.ShortEnemyAttackCooldown = 1.0f;
 
         //LongEnemy
