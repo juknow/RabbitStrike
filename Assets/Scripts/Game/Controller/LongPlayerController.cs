@@ -51,13 +51,17 @@ public class LongPlayerController : MonoBehaviour, IController
         if (findAnyone)
         {
             FindClosestEnemy();
+
         }
 
         if (!findAnyone && closestEnemy != null)
         {
             HandleEnemyInteraction();
         }
-
+        else if (!findAnyone && closestEnemy == null)
+        {
+            ResetEnemySearch();
+        }
         /*if (attackAnimationController.isInRange)
         {
             return; // Stop moving if we are in range
@@ -86,6 +90,7 @@ public class LongPlayerController : MonoBehaviour, IController
     void FindClosestEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        closestDistance = Mathf.Infinity; // Reset closest distance for new search
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
@@ -125,9 +130,10 @@ public class LongPlayerController : MonoBehaviour, IController
 
     void ResetEnemySearch()
     {
+        Debug.Log("다시 적 찾기");
         findAnyone = true;
         closestDistance = Mathf.Infinity;
-        closestEnemy = null;
+        closestEnemy = null; // Clear the current closest enemy
     }
 
     /*

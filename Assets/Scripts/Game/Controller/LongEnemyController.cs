@@ -52,6 +52,10 @@ public class LongEnemyController : MonoBehaviour, IController
         {
             HandlePlayerInteraction();
         }
+        else if (!findAnyone && closestPlayer == null)
+        {
+            ResetPlayerSearch();
+        }
 
         /*
         if (playersInRange.Count > 0)
@@ -77,6 +81,7 @@ public class LongEnemyController : MonoBehaviour, IController
     void FindClosestPlayer()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        closestDistance = Mathf.Infinity; // Reset closest distance for new search
         foreach (GameObject player in players)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
@@ -110,10 +115,11 @@ public class LongEnemyController : MonoBehaviour, IController
         }
         else
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
             // Additional logic for when the player is in range can be added here
         }
     }
+
 
     void ResetPlayerSearch()
     {
@@ -121,6 +127,7 @@ public class LongEnemyController : MonoBehaviour, IController
         closestDistance = Mathf.Infinity;
         closestPlayer = null;
     }
+
 
 
     // 애니메이션 이벤트로 호출할 함수

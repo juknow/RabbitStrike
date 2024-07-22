@@ -55,6 +55,11 @@ public class BasicEnemyController : MonoBehaviour, IController
         {
             HandlePlayerInteraction();
         }
+        else if (!findAnyone && closestPlayer == null)
+        {
+            ResetPlayerSearch();
+        }
+
 
 
 
@@ -83,6 +88,7 @@ public class BasicEnemyController : MonoBehaviour, IController
     void FindClosestPlayer()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        closestDistance = Mathf.Infinity; // Reset closest distance for new search
         foreach (GameObject player in players)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
@@ -116,7 +122,7 @@ public class BasicEnemyController : MonoBehaviour, IController
         }
         else
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
             // Additional logic for when the player is in range can be added here
         }
     }
