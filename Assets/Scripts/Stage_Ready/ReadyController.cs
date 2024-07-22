@@ -26,7 +26,27 @@ public class ReadyController : MonoBehaviour
             case (4):
                 NewDataManager.Instance.BasicEnemyCount = 3;
                 NewDataManager.Instance.ShortEnemyCount = 3;
-                NewDataManager.Instance.LongEnemyCount = 2;
+                NewDataManager.Instance.LongEnemyCount = 0;
+                break;
+            case (5):
+                NewDataManager.Instance.BasicEnemyCount = 3;
+                NewDataManager.Instance.ShortEnemyCount = 0;
+                NewDataManager.Instance.LongEnemyCount = 3;
+                break;
+            case (6):
+                NewDataManager.Instance.BasicEnemyCount = 0;
+                NewDataManager.Instance.ShortEnemyCount = 3;
+                NewDataManager.Instance.LongEnemyCount = 3;
+                break;
+            case (7):
+                NewDataManager.Instance.BasicEnemyCount = 3;
+                NewDataManager.Instance.ShortEnemyCount = 3;
+                NewDataManager.Instance.LongEnemyCount = 3;
+                break;
+            case (8):
+                NewDataManager.Instance.BasicEnemyCount = 5;
+                NewDataManager.Instance.ShortEnemyCount = 5;
+                NewDataManager.Instance.LongEnemyCount = 0;
                 break;
         }
 

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShortEnemySpawnController : MonoBehaviour
+public class BasicPlayerSpawnController : MonoBehaviour
 {
-    public GameObject shortEnemy;
+    public GameObject basicPlayer;
 
-    private Transform shortEnemyTransform;
+    private Transform basicPlayerTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -23,16 +23,15 @@ public class ShortEnemySpawnController : MonoBehaviour
     private void SpawnInGame()
     {
         //spawn position setting
-        shortEnemyTransform = shortEnemy.transform;
+        basicPlayerTransform = basicPlayer.transform;
         Debug.Log("트랜스폼 가져오기");
-        Debug.Log(NewDataManager.Instance.ShortEnemyCount);
-        int spawnShortEnemy = NewDataManager.Instance.ShortEnemyCount;
-        int spawnBasicEnemy = NewDataManager.Instance.BasicEnemyCount;
+        Debug.Log(NewDataManager.Instance.ShortPlayerCount);
+        int spawnBasicPlayer = NewDataManager.Instance.BasicPlayerCount;
         Debug.Log("spawnCount 설정");
         Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);
-        for (int i = 0; i < spawnShortEnemy; i++)
+        for (int i = 0; i < spawnBasicPlayer; i++)
         {
-            Instantiate(shortEnemy, spawnPosition, Quaternion.identity);
+            Instantiate(basicPlayer, spawnPosition, Quaternion.identity);
         }
     }
 }

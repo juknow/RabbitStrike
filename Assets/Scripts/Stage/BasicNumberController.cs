@@ -41,10 +41,10 @@ public class BasicNumberController : MonoBehaviour
     void UpdateInfoText()
     {
         infoText.text = "Weapon range : <color=\"red\">Short</color>\n" +
-                        "Move speed : <color=\"red\">fast</color>\n" +
-                        "Atk damage : <color=\"red\">3</color>\n" +
-                        "HP : <color=\"green\">15</color>\n" +
-                        "Cost : <color=\"green\">300</color>\n\n" +
+                        "Move speed : <color=\"red\">Fast</color>\n" +
+                        "Atk damage : <color=\"red\">" + NewDataManager.Instance.BasicPlayerAttackDamage + "</color>\n" +
+                        "HP : <color=\"red\">" + NewDataManager.Instance.BasicPlayerHP + "</color>\n" +
+                        "Cost : <color=\"red\">300</color>\n\n" +
                         "개수 : <color=\"green\">" + NewDataManager.Instance.BasicPlayerCount + "</color>";
     }
 }
