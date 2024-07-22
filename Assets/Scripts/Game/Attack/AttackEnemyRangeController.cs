@@ -27,6 +27,7 @@ public class AttackEnemyRangeController : MonoBehaviour
         }
         else
         {
+            Debug.Log("플레이어 감지 해제");
             attackAnimationController.isInRange = false;
         }
 

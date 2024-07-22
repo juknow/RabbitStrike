@@ -27,7 +27,7 @@ public class AttackPlayerRangeController : MonoBehaviour
         }
         else
         {
-            //attackAnimationController.isInRange = false;
+            attackAnimationController.isInRange = false;
         }
 
     }

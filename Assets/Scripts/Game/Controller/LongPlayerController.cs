@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LongPlayerController : MonoBehaviour
+public class LongPlayerController : MonoBehaviour, IController
 {
-    private float myHP, myattack, damageCooldown, moveSpeed;
-    private bool canTakeDamage;
+    private float myHP, myattack, damageCooldown, moveSpeed, closestDistance;
+
+    private bool canTakeDamage, findAnyone;
     private Transform EnemyTransform;
     private List<GameObject> enemiesInRange = new List<GameObject>();
+
+    private GameObject closestPlayer;
 
     private AttackAnimationController attackAnimationController;
 
@@ -16,6 +19,9 @@ public class LongPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        closestPlayer = null;
+        findAnyone = true;
+        closestDistance = Mathf.Infinity;
         //NewDataManager.Instance.LongEnemyCount;
         myHP = NewDataManager.Instance.LongPlayerHP;
         moveSpeed = NewDataManager.Instance.LongPlayerMoveSpeed;
@@ -35,25 +41,67 @@ public class LongPlayerController : MonoBehaviour
         EnemyTransform = enemy.transform;
         transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
         */
-        if (enemiesInRange.Count > 0)
+
+        if (findAnyone == true)
         {
-            GameObject closestEnemy = GetClosestEnemy();
-            if (closestEnemy != null && attackAnimationController.isInRange == false)
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject player in players)
             {
-                EnemyTransform = closestEnemy.transform;
-                transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+                float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+                if (distanceToPlayer < closestDistance)
+                {
+                    closestDistance = distanceToPlayer;
+                    closestPlayer = player;
+                }
             }
-        }
-        else
-        {
-            GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-            if (enemy != null && attackAnimationController.isInRange == false)
+
+            // If a player is found, stop looking for others
+            if (closestPlayer != null)
             {
-                EnemyTransform = enemy.transform;
-                transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+                findAnyone = false;
             }
 
         }
+        if (findAnyone == false && closestPlayer != null)
+        {
+            if (attackAnimationController.isInRange == false)
+            {
+                EnemyTransform = closestPlayer.transform;
+                transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+            }
+            else
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Enemy");
+                if (attackAnimationController.isInRange == false)
+                {
+                    EnemyTransform = player.transform;
+                    transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+                }
+            }
+
+        }
+
+        /*
+                if (enemiesInRange.Count > 0)
+                {
+                    GameObject closestEnemy = GetClosestEnemy();
+                    if (closestEnemy != null && attackAnimationController.isInRange == false)
+                    {
+                        EnemyTransform = closestEnemy.transform;
+                        transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+                    }
+                }
+                else
+                {
+                    GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+                    if (enemy != null && attackAnimationController.isInRange == false)
+                    {
+                        EnemyTransform = enemy.transform;
+                        transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+                    }
+
+                }
+        */
 
         // Die mechanism
         if (myHP <= 0f)
@@ -62,11 +110,32 @@ public class LongPlayerController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
+    // 애니메이션 이벤트로 호출할 함수
+    public void ApplyDamage()
+    {
+        if (attackAnimationController.isInRange == true && closestPlayer != null)
+        {
+            var controller = closestPlayer.GetComponent<IController>();
+            if (controller != null)
+            {
+                controller.ReceiveDamage(myattack);
+            }
+        }
+        // Assuming the target has a method to receive damage
+
+    }
+    public void ReceiveDamage(float damage)
+    {
+        myHP -= damage;
+        Debug.Log("Received damage: " + damage + ", HP left: " + myHP);
+    }
     void OnTriggerStay2D(Collider2D other)
     {
 
     }
-    void OnTriggerExit2D(Collider2D other)
+    /*    void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
@@ -91,4 +160,5 @@ public class LongPlayerController : MonoBehaviour
 
         return closestEnemy;
     }
+    */
 }

@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicPlayerController : MonoBehaviour
+public class BasicPlayerController : MonoBehaviour, IController
 {
-    private float myHP, myattack, damageCooldown, moveSpeed;
-    private bool canTakeDamage;
+    private float myHP, myattack, damageCooldown, closestDistance, moveSpeed;
+    private bool canTakeDamage, findAnyone;
     private Transform EnemyTransform;
     private List<GameObject> enemiesInRange = new List<GameObject>();
-
+    private GameObject closestPlayer;
     private AttackAnimationController attackAnimationController;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        closestPlayer = null;
+        findAnyone = true;
+        closestDistance = Mathf.Infinity;
         //NewDataManager.Instance.LongEnemyCount;
         myHP = NewDataManager.Instance.BasicPlayerHP;
         moveSpeed = NewDataManager.Instance.BasicPlayerMoveSpeed;
@@ -35,7 +38,45 @@ public class BasicPlayerController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
         */
         // Check if we are in range to attack
-        if (attackAnimationController.isInRange)
+        if (findAnyone == true)
+        {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject player in players)
+            {
+                float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+                if (distanceToPlayer < closestDistance)
+                {
+                    closestDistance = distanceToPlayer;
+                    closestPlayer = player;
+                }
+            }
+
+            // If a player is found, stop looking for others
+            if (closestPlayer != null)
+            {
+                findAnyone = false;
+            }
+
+        }
+        if (findAnyone == false && closestPlayer != null)
+        {
+            if (attackAnimationController.isInRange == false)
+            {
+                EnemyTransform = closestPlayer.transform;
+                transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+            }
+            else
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Enemy");
+                if (attackAnimationController.isInRange == false)
+                {
+                    EnemyTransform = player.transform;
+                    transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+                }
+            }
+        }
+
+        /*if (attackAnimationController.isInRange)
         {
             return; // Stop moving if we are in range
         }
@@ -57,6 +98,7 @@ public class BasicPlayerController : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
             }
         }
+        */
 
         // Die mechanism
         if (myHP <= 0f)
@@ -71,29 +113,53 @@ public class BasicPlayerController : MonoBehaviour
 
     }
 
-    void OnTriggerExit2D(Collider2D other)
+
+    // 애니메이션 이벤트로 호출할 함수
+    public void ApplyDamage()
     {
-        if (other.CompareTag("Enemy"))
+        if (attackAnimationController.isInRange == true && closestPlayer != null)
         {
-            enemiesInRange.Remove(other.gameObject); // Remove the enemy from the list when it exits the collider
+            var controller = closestPlayer.GetComponent<IController>();
+            if (controller != null)
+            {
+                controller.ReceiveDamage(myattack);
+            }
         }
+        // Assuming the target has a method to receive damage
+
+    }
+    public void ReceiveDamage(float damage)
+    {
+        myHP -= damage;
+        Debug.Log("Received damage: " + damage + ", HP left: " + myHP);
     }
 
-    GameObject GetClosestEnemy()
-    {
-        GameObject closestEnemy = null;
-        float closestDistance = Mathf.Infinity;
-
-        foreach (GameObject enemy in enemiesInRange)
+    /*
+        void OnTriggerExit2D(Collider2D other)
         {
-            float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < closestDistance)
+            if (other.CompareTag("Enemy"))
             {
-                closestDistance = distanceToEnemy;
-                closestEnemy = enemy;
+                enemiesInRange.Remove(other.gameObject); // Remove the enemy from the list when it exits the collider
             }
         }
 
-        return closestEnemy;
-    }
+
+        GameObject GetClosestEnemy()
+        {
+            GameObject closestEnemy = null;
+            float closestDistance = Mathf.Infinity;
+
+            foreach (GameObject enemy in enemiesInRange)
+            {
+                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy < closestDistance)
+                {
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = enemy;
+                }
+            }
+
+            return closestEnemy;
+        }
+        */
 }
