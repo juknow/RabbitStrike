@@ -38,7 +38,7 @@ public class StartController : MonoBehaviour
 
         NewDataManager.Instance.LongPlayerHP = 10.0f;
         NewDataManager.Instance.LongPlayerMoveSpeed = 2.0f;
-        NewDataManager.Instance.LongPlayerAttackDamage = 5.0f;
+        NewDataManager.Instance.LongPlayerAttackDamage = 4.0f;
         NewDataManager.Instance.LongPlayerAttackCooldown = 1.0f;
 
         //BasicEnemy
@@ -57,7 +57,7 @@ public class StartController : MonoBehaviour
 
         NewDataManager.Instance.LongEnemyHP = 10.0f;
         NewDataManager.Instance.LongEnemyMoveSpeed = 2.0f;
-        NewDataManager.Instance.LongEnemyAttackDamage = 5.0f;
+        NewDataManager.Instance.LongEnemyAttackDamage = 4.0f;
         NewDataManager.Instance.LongEnemyAttackCooldown = 1.0f;
 
 

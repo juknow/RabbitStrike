@@ -16,7 +16,7 @@ public class GameOverSceneManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene("Lobby");
+            SceneManager.LoadScene("Lobby_Test");
         }
     }
 }

@@ -27,8 +27,7 @@ public class WinController : MonoBehaviour
         else if (players.Length == 0)
         {
             Debug.Log("Enemy Wins! No Players left.");
-            NewDataManager.Instance.StageLevel = 1;
-            SceneManager.LoadScene("Lobby_Test");
+            SceneManager.LoadScene("GameOver_Test");
         }
         else if (enemies.Length == 0)
         {
