@@ -19,12 +19,12 @@ public class StartController : MonoBehaviour
     public void GameStart()
     {
         //TypeCount
-        NewDataManager.Instance.LongEnemyCount = 5;
+        NewDataManager.Instance.LongEnemyCount = 3;
         NewDataManager.Instance.ShortEnemyCount = 3;
-        NewDataManager.Instance.BasicEnemyCount = 4;
-        NewDataManager.Instance.LongPlayerCount = 5;
+        NewDataManager.Instance.BasicEnemyCount = 3;
+        NewDataManager.Instance.LongPlayerCount = 3;
         NewDataManager.Instance.ShortPlayerCount = 3;
-        NewDataManager.Instance.BasicPlayerCount = 4;
+        NewDataManager.Instance.BasicPlayerCount = 3;
 
         //StatSetting
 

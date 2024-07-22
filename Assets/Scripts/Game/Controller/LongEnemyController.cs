@@ -32,49 +32,26 @@ public class LongEnemyController : MonoBehaviour, IController
     // Update is called once per frame
     void Update()
     {
+        // Die mechanism
+        if (myHP <= 0f)
+        {
+            Debug.Log("롱 적 죽음");
+            Destroy(gameObject);
+        }
         //find first coming Enemy. but current system is not following this logic. it may finds first order object.
         /*GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
         EnemyTransform = enemy.transform;
         transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
         */
-        if (findAnyone == true)
+        if (findAnyone)
         {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            foreach (GameObject player in players)
-            {
-                float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-                if (distanceToPlayer < closestDistance)
-                {
-                    closestDistance = distanceToPlayer;
-                    closestPlayer = player;
-                }
-            }
-
-            // If a player is found, stop looking for others
-            if (closestPlayer != null)
-            {
-                findAnyone = false;
-            }
-
-        }
-        if (findAnyone == false && closestPlayer != null)
-        {
-            if (attackAnimationController.isInRange == false)
-            {
-                PlayerTransform = closestPlayer.transform;
-                transform.position = Vector2.MoveTowards(transform.position, PlayerTransform.position, moveSpeed * Time.deltaTime);
-            }
-            else
-            {
-                GameObject player = GameObject.FindGameObjectWithTag("Player");
-                if (attackAnimationController.isInRange == false)
-                {
-                    PlayerTransform = player.transform;
-                    transform.position = Vector2.MoveTowards(transform.position, PlayerTransform.position, moveSpeed * Time.deltaTime);
-                }
-            }
+            FindClosestPlayer();
         }
 
+        if (!findAnyone && closestPlayer != null)
+        {
+            HandlePlayerInteraction();
+        }
 
         /*
         if (playersInRange.Count > 0)
@@ -96,19 +73,60 @@ public class LongEnemyController : MonoBehaviour, IController
             }
         }
         */
-        // Die mechanism
-        if (myHP <= 0f)
+    }
+    void FindClosestPlayer()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
         {
-            Debug.Log("롱 적 죽음");
-            Destroy(gameObject);
+            float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+            if (distanceToPlayer < closestDistance)
+            {
+                closestDistance = distanceToPlayer;
+                closestPlayer = player;
+            }
         }
+
+        // If a player is found, stop looking for others
+        if (closestPlayer != null)
+        {
+            findAnyone = false;
+        }
+    }
+
+    void HandlePlayerInteraction()
+    {
+        // Check if the closestPlayer has been destroyed
+        if (closestPlayer == null)
+        {
+            ResetPlayerSearch();
+            return; // Exit early to avoid further processing
+        }
+
+        if (!attackAnimationController.isInRange)
+        {
+            Transform playerTransform = closestPlayer.transform;
+            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            // Additional logic for when the player is in range can be added here
+        }
+    }
+
+    void ResetPlayerSearch()
+    {
+        findAnyone = true;
+        closestDistance = Mathf.Infinity;
+        closestPlayer = null;
     }
 
 
     // 애니메이션 이벤트로 호출할 함수
     public void ApplyDamage()
     {
-        if (attackAnimationController.isInRange == true && closestPlayer != null)
+        if (attackAnimationController.isInRange && closestPlayer != null)
         {
             var controller = closestPlayer.GetComponent<IController>();
             if (controller != null)

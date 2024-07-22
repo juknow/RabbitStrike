@@ -597,7 +597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7793273239145935859}
   - component: {fileID: 2879363893788121917}
-  - component: {fileID: 4264187726051085906}
+  - component: {fileID: 2669616106315732797}
   m_Layer: 0
   m_Name: AttackRange
   m_TagString: Untagged
@@ -663,9 +663,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 17, y: 17}
   m_EdgeRadius: 0
---- !u!114 &4264187726051085906
+--- !u!114 &2669616106315732797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4196696056514460883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac68cdc40a27ab14a93b340f2b017b0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bf03ca1871328249a8f043c1254da4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6016098080892251591

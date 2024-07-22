@@ -6,26 +6,27 @@ public class AttackAnimationController : MonoBehaviour
 {
     private Animator animator;
     public bool isInRange;
-    // Start is called before the first frame update
+
     void Start()
     {
         isInRange = false;
         animator = GetComponent<Animator>();
 
+        if (animator == null)
+        {
+            Debug.LogError("Animator 컴포넌트를 찾을 수 없습니다.");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isInRange)
+        if (animator != null)
         {
-            animator.SetBool("isInRange", true);
+            animator.SetBool("isInRange", isInRange);
         }
         else
         {
-            animator.SetBool("isInRange", false);
+            Debug.LogError("Animator가 초기화되지 않았습니다.");
         }
     }
-
 }
-

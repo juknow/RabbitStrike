@@ -10,7 +10,7 @@ public class LongPlayerController : MonoBehaviour, IController
     private Transform EnemyTransform;
     private List<GameObject> enemiesInRange = new List<GameObject>();
 
-    private GameObject closestPlayer;
+    private GameObject closestEnemy;
 
     private AttackAnimationController attackAnimationController;
 
@@ -19,7 +19,7 @@ public class LongPlayerController : MonoBehaviour, IController
     // Start is called before the first frame update
     void Start()
     {
-        closestPlayer = null;
+        closestEnemy = null;
         findAnyone = true;
         closestDistance = Mathf.Infinity;
         //NewDataManager.Instance.LongEnemyCount;
@@ -36,88 +36,129 @@ public class LongPlayerController : MonoBehaviour, IController
     // Update is called once per frame
     void Update()
     {
-        //find first coming Enemy. but current system is not following this logic. it may finds first order object.
-        /*GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-        EnemyTransform = enemy.transform;
-        transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
-        */
-
-        if (findAnyone == true)
-        {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach (GameObject player in players)
-            {
-                float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-                if (distanceToPlayer < closestDistance)
-                {
-                    closestDistance = distanceToPlayer;
-                    closestPlayer = player;
-                }
-            }
-
-            // If a player is found, stop looking for others
-            if (closestPlayer != null)
-            {
-                findAnyone = false;
-            }
-
-        }
-        if (findAnyone == false && closestPlayer != null)
-        {
-            if (attackAnimationController.isInRange == false)
-            {
-                EnemyTransform = closestPlayer.transform;
-                transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
-            }
-            else
-            {
-                GameObject player = GameObject.FindGameObjectWithTag("Enemy");
-                if (attackAnimationController.isInRange == false)
-                {
-                    EnemyTransform = player.transform;
-                    transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
-                }
-            }
-
-        }
-
-        /*
-                if (enemiesInRange.Count > 0)
-                {
-                    GameObject closestEnemy = GetClosestEnemy();
-                    if (closestEnemy != null && attackAnimationController.isInRange == false)
-                    {
-                        EnemyTransform = closestEnemy.transform;
-                        transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
-                    }
-                }
-                else
-                {
-                    GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-                    if (enemy != null && attackAnimationController.isInRange == false)
-                    {
-                        EnemyTransform = enemy.transform;
-                        transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
-                    }
-
-                }
-        */
-
         // Die mechanism
         if (myHP <= 0f)
         {
             Debug.Log("롱 팀 죽음");
             Destroy(gameObject);
         }
+        //find first coming Enemy. but current system is not following this logic. it may finds first order object.
+        /*GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        EnemyTransform = enemy.transform;
+        transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+        */
+
+        if (findAnyone)
+        {
+            FindClosestEnemy();
+        }
+
+        if (!findAnyone && closestEnemy != null)
+        {
+            HandleEnemyInteraction();
+        }
+
+        /*if (attackAnimationController.isInRange)
+        {
+            return; // Stop moving if we are in range
+        }
+        if (enemiesInRange.Count > 0)
+        {
+            GameObject closestEnemy = GetClosestEnemy();
+            if (closestEnemy != null && attackAnimationController.isInRange == false)
+            {
+                EnemyTransform = closestEnemy.transform;
+                transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+            if (enemy != null && attackAnimationController.isInRange == false)
+            {
+                EnemyTransform = enemy.transform;
+                transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+            }
+        }
+        */
     }
+
+    void FindClosestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < closestDistance)
+            {
+                closestDistance = distanceToEnemy;
+                closestEnemy = enemy;
+            }
+        }
+
+        // If an enemy is found, stop looking for others
+        if (closestEnemy != null)
+        {
+            findAnyone = false;
+        }
+    }
+
+    void HandleEnemyInteraction()
+    {
+        // Check if the closestEnemy has been destroyed
+        if (closestEnemy == null)
+        {
+            ResetEnemySearch();
+            return; // Exit early to avoid further processing
+        }
+
+        if (!attackAnimationController.isInRange)
+        {
+            Transform enemyTransform = closestEnemy.transform;
+            transform.position = Vector2.MoveTowards(transform.position, enemyTransform.position, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // Additional logic for when the enemy is in range can be added here
+        }
+    }
+
+    void ResetEnemySearch()
+    {
+        findAnyone = true;
+        closestDistance = Mathf.Infinity;
+        closestEnemy = null;
+    }
+
+    /*
+            if (enemiesInRange.Count > 0)
+            {
+                GameObject closestEnemy = GetClosestEnemy();
+                if (closestEnemy != null && attackAnimationController.isInRange == false)
+                {
+                    EnemyTransform = closestEnemy.transform;
+                    transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+                }
+            }
+            else
+            {
+                GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+                if (enemy != null && attackAnimationController.isInRange == false)
+                {
+                    EnemyTransform = enemy.transform;
+                    transform.position = Vector2.MoveTowards(transform.position, EnemyTransform.position, moveSpeed * Time.deltaTime);
+                }
+
+            }
+    */
 
 
     // 애니메이션 이벤트로 호출할 함수
     public void ApplyDamage()
     {
-        if (attackAnimationController.isInRange == true && closestPlayer != null)
+        if (attackAnimationController.isInRange && closestEnemy != null)
         {
-            var controller = closestPlayer.GetComponent<IController>();
+            var controller = closestEnemy.GetComponent<IController>();
             if (controller != null)
             {
                 controller.ReceiveDamage(myattack);
