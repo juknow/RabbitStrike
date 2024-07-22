@@ -76,6 +76,9 @@ public class NewDataManager : MonoBehaviour
     private float longEnemyAttackCooldown;
 
     //
+    private int savedStageLevel;
+
+
 
     private int stageLevel;
     private float speed;
@@ -308,6 +311,14 @@ public class NewDataManager : MonoBehaviour
     }
 
     //
+
+    public int SavedStageLevel
+    {
+        get { return savedStageLevel; }
+        set { savedStageLevel = value; }
+
+    }
+
     public int StageLevel
     {
         get { return stageLevel; }

@@ -27,13 +27,18 @@ public class WinController : MonoBehaviour
         else if (players.Length == 0)
         {
             Debug.Log("Enemy Wins! No Players left.");
+            NewDataManager.Instance.StageLevel = 1;
             SceneManager.LoadScene("Lobby_Test");
         }
         else if (enemies.Length == 0)
         {
             Debug.Log("Player Wins! No Enemies left.");
-            SceneManager.LoadScene("Stage");
+            SceneManager.LoadScene("Stage_Ready");
             NewDataManager.Instance.StageLevel++;
+            if (NewDataManager.Instance.SavedStageLevel < NewDataManager.Instance.StageLevel)
+            {
+                NewDataManager.Instance.SavedStageLevel = NewDataManager.Instance.StageLevel;
+            }
         }
 
     }

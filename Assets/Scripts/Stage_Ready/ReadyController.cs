@@ -8,11 +8,27 @@ public class ReadyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    }
+        switch (NewDataManager.Instance.StageLevel)
+        {
+            case (2):
+                NewDataManager.Instance.BasicEnemyCount = 0;
+                NewDataManager.Instance.ShortEnemyCount = 5;
+                NewDataManager.Instance.LongEnemyCount = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
+
+                break;
+            case (3):
+                NewDataManager.Instance.BasicEnemyCount = 0;
+                NewDataManager.Instance.ShortEnemyCount = 0;
+                NewDataManager.Instance.LongEnemyCount = 5;
+                break;
+
+            case (4):
+                NewDataManager.Instance.BasicEnemyCount = 3;
+                NewDataManager.Instance.ShortEnemyCount = 3;
+                NewDataManager.Instance.LongEnemyCount = 2;
+                break;
+        }
 
     }
 

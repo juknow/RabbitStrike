@@ -60,6 +60,21 @@ public class LobbyStartController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void GameLoad()
+    {
+        if (NewDataManager.Instance.SavedStageLevel == 0)
+        {
+            Debug.Log("Can't load");
+        }
+        else
+        {
+            NewDataManager.Instance.StageLevel = NewDataManager.Instance.SavedStageLevel;
+            SceneManager.LoadScene("Stage_Ready");
+        }
+
+    }
+
     public void SelectGun()
     {
         DataManager.Instance.StageLevel = 1;
