@@ -27,12 +27,13 @@ public class WinController : MonoBehaviour
         else if (players.Length == 0)
         {
             Debug.Log("Enemy Wins! No Players left.");
-            SceneManager.LoadScene("Stage");
+            SceneManager.LoadScene("Lobby_Test");
         }
         else if (enemies.Length == 0)
         {
             Debug.Log("Player Wins! No Enemies left.");
             SceneManager.LoadScene("Stage");
+            NewDataManager.Instance.StageLevel++;
         }
 
     }

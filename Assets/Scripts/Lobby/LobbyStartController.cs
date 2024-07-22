@@ -48,9 +48,13 @@ public class LobbyStartController : MonoBehaviour
 
         DataManager.Instance.specialWeaponGet = false;
         */
+        NewDataManager.Instance.StageLevel = 1;
+        NewDataManager.Instance.BasicEnemyCount = 5;
+        NewDataManager.Instance.ShortEnemyCount = 0;
+        NewDataManager.Instance.LongEnemyCount = 0;
 
         Debug.Log("시작");
-        SceneManager.LoadScene("Stage");
+        SceneManager.LoadScene("Stage_Ready");
     }
     public void GameQuit()
     {
